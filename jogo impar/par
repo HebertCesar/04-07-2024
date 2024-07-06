@@ -1,0 +1,104 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOrPcTM/ITuP5x+lLzDxLQN",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/HebertCesar/04-07-2024/blob/main/jogo%20impar/par\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VZd-nfT6VIIK",
+        "outputId": "34249b7d-0c35-4256-adcf-07c71df0bf66"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Bem-vindo ao jogo Ímpar ou Par!\n",
+            "Você vai jogar contra o computador. Escolha Ímpar (i) ou Par (p).\n",
+            "Escolha 'i' para Ímpar ou 'p' para Par: i\n",
+            "Digite um número inteiro de 1 a 10: 7\n",
+            "O computador escolheu o número: 6\n",
+            "A soma dos números é: 13\n",
+            "Resultado: Ímpar\n",
+            "Parabéns! Você ganhou!\n"
+          ]
+        }
+      ],
+      "source": [
+        "import random\n",
+        "\n",
+        "def jogo_impar_par():\n",
+        "    print(\"Bem-vindo ao jogo Ímpar ou Par!\")\n",
+        "    print(\"Você vai jogar contra o computador. Escolha Ímpar (i) ou Par (p).\")\n",
+        "\n",
+        "    while True:\n",
+        "        escolha_usuario = input(\"Escolha 'i' para Ímpar ou 'p' para Par: \").lower()\n",
+        "\n",
+        "        if escolha_usuario not in ['i', 'p']:\n",
+        "            print(\"Escolha inválida. Tente novamente.\")\n",
+        "            continue\n",
+        "\n",
+        "        num_usuario = int(input(\"Digite um número inteiro de 1 a 10: \"))\n",
+        "\n",
+        "        while num_usuario < 1 or num_usuario > 10:\n",
+        "            num_usuario = int(input(\"Número inválido. Digite um número de 1 a 10: \"))\n",
+        "\n",
+        "        num_computador = random.randint(1, 10)\n",
+        "        print(\"O computador escolheu o número:\", num_computador)\n",
+        "\n",
+        "        soma = num_usuario + num_computador\n",
+        "        resultado = soma % 2\n",
+        "\n",
+        "        if resultado == 0:\n",
+        "            resultado_texto = \"Par\"\n",
+        "        else:\n",
+        "            resultado_texto = \"Ímpar\"\n",
+        "\n",
+        "        print(\"A soma dos números é:\", soma)\n",
+        "        print(\"Resultado:\", resultado_texto)\n",
+        "\n",
+        "        if (resultado_texto == \"Par\" and escolha_usuario == 'p') or (resultado_texto == \"Ímpar\" and escolha_usuario == 'i'):\n",
+        "            print(\"Parabéns! Você ganhou!\")\n",
+        "        else:\n",
+        "            print(\"Você perdeu. Tente novamente!\")\n",
+        "\n",
+        "        continuar = input(\"Deseja jogar novamente? (s/n): \").lower()\n",
+        "        if continuar != 's':\n",
+        "            break\n",
+        "\n",
+        "    print(\"Obrigado por jogar!\")\n",
+        "\n",
+        "# Para iniciar o jogo, chame a função jogo_impar_par():\n",
+        "jogo_impar_par()\n"
+      ]
+    }
+  ]
+}
