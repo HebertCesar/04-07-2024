@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPjZDXCiPJqTYDlOO5xbk55",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/HebertCesar/04-07-2024/blob/main/jogo\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "fOrBcUoTStU8"
+      },
+      "outputs": [],
+      "source": [
+        "import random\n",
+        "\n",
+        "def jogo():\n",
+        "    print(\"Bem-vindo ao jogo Pedra, Papel, Tesoura!\")\n",
+        "    print(\"Escolha uma opção:\")\n",
+        "    print(\"1. Pedra\")\n",
+        "    print(\"2. Papel\")\n",
+        "    print(\"3. Tesoura\")\n",
+        "\n",
+        "    jogador = int(input(\"Digite o número correspondente à sua escolha: \"))\n",
+        "    while jogador < 1 or jogador > 3:\n",
+        "        jogador = int(input(\"Escolha inválida! Digite 1 para Pedra, 2 para Papel ou 3 para Tesoura: \"))\n",
+        "\n",
+        "    if jogador == 1:\n",
+        "        escolha_jogador = \"Pedra\"\n",
+        "    elif jogador == 2:\n",
+        "        escolha_jogador = \"Papel\"\n",
+        "    else:\n",
+        "        escolha_jogador = \"Tesoura\"\n",
+        "\n",
+        "    opcoes = [\"Pedra\", \"Papel\", \"Tesoura\"]\n",
+        "    escolha_maquina = random.choice(opcoes)\n",
+        "\n",
+        "    print(f\"Você escolheu: {escolha_jogador}\")\n",
+        "    print(f\"A máquina escolheu: {escolha_maquina}\")\n",
+        "\n",
+        "    if escolha_jogador == escolha_maquina:\n",
+        "        print(\"Empate!\")\n",
+        "    elif (escolha_jogador == \"Pedra\" and escolha_maquina == \"Tesoura\") or \\\n",
+        "         (escolha_jogador == \"Papel\" and escolha_maquina == \"Pedra\") or \\\n",
+        "         (escolha_jogador == \"Tesoura\" and escolha_maquina == \"Papel\"):\n",
+        "        print(\"Você ganhou!\")\n",
+        "    else:\n",
+        "        print(\"Você perdeu!\")\n",
+        "\n",
+        "    jogar_novamente = input(\"Deseja jogar novamente? (s/n): \").lower()\n",
+        "    if jogar_novamente == \"s\":\n",
+        "        jogo()\n",
+        "    else:\n",
+        "        print(\"Obrigado por jogar!\")\n",
+        "\n",
+        "# Iniciar o jogo\n",
+        "jogo()\n"
+      ]
+    }
+  ]
+}
